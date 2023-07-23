@@ -1,5 +1,4 @@
 package com.iamneo.security.entity;
-import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,12 +13,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user_details")
-public class UserDetails {
+@Table(name = "_course")
+public class Courses {
     @Id
     private Long id;
-    private String address;
-    private int age;
-    private Date dob;
-
+    private int courses_completed;
+    private int completion_status;
+    private String current_course;
+    private String current_course_desc;
 }

@@ -11,6 +11,7 @@ import com.iamneo.security.dto.request.RegisterRequest;
 import com.iamneo.security.dto.response.AuthenticationResponse;
 import com.iamneo.security.entity.Role;
 import com.iamneo.security.entity.User;
+import com.iamneo.security.entity.UsersDetails;
 import com.iamneo.security.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -41,14 +42,15 @@ public class AuthenticationService {
                 .token(jwtToken)
                 .build();
     }
-
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
-        var user = userRepository.findByEmail(request.getEmail()).orElseThrow();
+                var user = userRepository.findByEmail(request.getEmail()).orElseThrow();
+                Long userId = user.getId();
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
+                .id(userId)
                 .build();
     }
 

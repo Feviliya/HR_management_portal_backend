@@ -13,10 +13,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "_salary")
-public class Salary {
+@Table(name="_attendance")
+public class Attendance {
     @Id
     private Long id;
-    private int total_pay;
-    private int final_pay;
+    private int days_present;
+    private String leave_from_date;
+    private String leave_to_date;
+    private String reason;
+    private String leave_req_status;  
 }
