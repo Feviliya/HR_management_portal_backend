@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor 
 public class LeaveResponse {
-    private String leave_from_date;
-    private String leave_to_date;
-    private String reason;
+    private int days_present;
+    private String leave_req_status;  
 }
