@@ -1,5 +1,6 @@
 package com.iamneo.security.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping("/api/v1/user")
 public class SalaryController {
     private final SalaryRepository sal;
@@ -38,5 +39,8 @@ public class SalaryController {
         
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(salServ.getUserSalary(id));
     }
-    
+    @GetMapping("/get/salary")
+    public List<Salary> getAllSalary(){
+        return sal.findAll();
+    }
 }

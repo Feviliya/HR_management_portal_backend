@@ -39,7 +39,7 @@ public class AttendanceController {
     public List<Attendance> getAllAttendances(){
         return attrepo.findAll();
     }
-    @PutMapping("/update/attendance/{id}")
+    @PutMapping("/update/attendance")
     public Attendance updateAttendance(@RequestBody Attendance a){
         return attrepo.saveAndFlush(a);
     }
